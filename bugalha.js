@@ -327,7 +327,12 @@ function verificaTabAdversario(ind, vez) {
     }
     if ((casasJog === 9) || (casasBot === 9)) {
         somaColuna();
-        displayDado.innerHTML = "FIM DE JOGO!";
+        if(somaJog > somaBot){
+            displayDado.innerHTML = "FIM DE JOGO! PLAYER1 VENCEU!";
+        }
+        else{
+            displayDado.innerHTML = "FIM DE JOGO! PLAYER2 VENCEU!";
+        }
         displaySoma[0].innerHTML = somaJog;
         displaySoma[1].innerHTML = somaBot;
 1 }
@@ -360,6 +365,15 @@ function jogada2() {
 function jogada3() {
     ind = 2;
     alocaDadoNaMatriz(0, 2);
+}
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("restartButton").addEventListener("click", restartGame);
+});
+
+function restartGame(){
+    location.reload();
 }
 
 function jogarRodada(vez) {
