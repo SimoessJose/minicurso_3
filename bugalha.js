@@ -120,7 +120,12 @@ function somaColuna() {
                 }
             }
             i++;
+
         }
+        somaJog = Pt[0] + Pt[1] + Pt[2];
+        somaBot = Pt[3] + Pt[4] + Pt[5];
+        displaySoma[0].innerHTML = somaJog;
+        displaySoma[1].innerHTML = somaBot;
     }
     if (vez === 1) {
         for (let j = 0; j < 3; j++) {
@@ -304,7 +309,7 @@ function verificaTabAdversario(ind, vez) {
         for (let i = 0; i < 3; i++) {
             for (let j = 0; j < 3; j++) {
                 if (tabBot[i][ind] === tabJogador[j][ind]) {
-                    Pt[ind] = Pt[ind] - tabJogador[j][ind];
+                    Pt[ind+3] = Pt[ind] - tabJogador[j][ind];
                     tabJogador[j][ind] = 0;
                     displayJog[j][ind].innerHTML = "";
                     displayPt[ind].innerHTML = 0;
