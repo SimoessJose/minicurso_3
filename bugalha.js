@@ -207,23 +207,28 @@ function somaColuna() {
             }
             i++;
         }
-    }
         somaJog = Pt[0] + Pt[1] + Pt[2];
         somaBot = Pt[3] + Pt[4] + Pt[5];
+        displaySoma[0].innerHTML = somaJog;
+        displaySoma[1].innerHTML = somaBot;
+    }
     }
 
 
 
 function girarDado() {
+    somaColuna();
     return dado = Math.floor(Math.random() * 6) + 1;
 }
 
 function limitaColuna() {
+    somaColuna();
     let indice = Math.floor(Math.random() * 3);
     return ind = indice;
 }
 
 function alocaDadoNaMatriz(vez, ind) {
+    somaColuna();
     let i = 0;
     if (vez === 0) {
         for (i = 0; i < 3; i++) {
@@ -275,10 +280,12 @@ function alocaDadoNaMatriz(vez, ind) {
             displayBot[i][ind].innerHTML = dado;
         }
     }
+    somaColuna();
     verificaTabAdversario(ind, vez);
 }
 
 function verificaTabAdversario(ind, vez) {
+    somaColuna();
     let casasJog = 0;
     let casasBot = 0;
     if (vez === 0) {
@@ -343,6 +350,7 @@ function verificaTabAdversario(ind, vez) {
 }
 
 function vezDaJogada() {
+    somaColuna();
     if (vez === 0) {
         vez = 1;
     }
